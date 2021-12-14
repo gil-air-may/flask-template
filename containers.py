@@ -4,9 +4,8 @@ from .api.controllers.product_controller import ProductController
 
 
 class Container(containers.DeclarativeContainer):
-
-    wiring_config = containers.WiringConfiguration(packages=[".api"])
-
-    product_business = providers.Singleton(ProductBusiness, "MYSQL")
+    product_business = providers.Singleton(ProductBusiness, conn="MYSQL")
 
     product_controller = providers.Singleton(ProductController)
+
+    wiring_config = containers.WiringConfiguration(packages=[".api", ".core"])
