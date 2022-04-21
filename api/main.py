@@ -12,7 +12,6 @@ def create_app() -> Flask:
 
     container = Container()
 
-    app.container = container
     product_controller = container.product_controller()
 
     # ipdb.set_trace()
