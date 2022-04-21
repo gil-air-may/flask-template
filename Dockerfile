@@ -1,7 +1,6 @@
 FROM python:3
 
-ENV GROUP_ID=1000 \
-    USER_ID=1000
+EXPOSE 5000
 
 WORKDIR /var/www/
 
@@ -12,6 +11,4 @@ RUN pip install -r flask-template/requirements.txt
 RUN pip install gunicorn
 RUN ls
 
-EXPOSE 8000
-
-RUN gunicorn 'flask-template.api.main:create_app()'
+CMD gunicorn -b 0.0.0.0:5000 'flask-template.api.main:create_app()'
