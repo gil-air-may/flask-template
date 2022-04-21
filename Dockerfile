@@ -14,4 +14,4 @@ RUN pip
 
 EXPOSE 5000
 
-CMD [ "gunicorn", "flask-template.api.main:create"]
+CMD [ "gunicorn", "flask-template.api.main:create_app"]
